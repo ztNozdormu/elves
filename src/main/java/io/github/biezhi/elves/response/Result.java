@@ -22,7 +22,10 @@ public class Result<T> {
 
     private List<Request> requests = new ArrayList<>();
     private T item;
-
+    
+    public Result() {
+    	
+    }
     public Result(T item) {
         this.item = item;
     }
@@ -38,5 +41,21 @@ public class Result<T> {
         }
         return this;
     }
+
+	public List<Request> getRequests() {
+		return requests;
+	}
+
+	public void setRequests(List<Request> requests) {
+		this.requests = requests;
+	}
+
+	public T getItem() {
+		return item;
+	}
+
+	public void setItem(T item) {
+		this.item = item;
+	}
 
 }

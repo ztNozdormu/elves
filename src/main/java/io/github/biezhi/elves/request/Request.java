@@ -81,4 +81,65 @@ public class Request<T> {
     public String method() {
         return this.method;
     }
+
+	public Spider getSpider() {
+		return spider;
+	}
+
+	public void setSpider(Spider spider) {
+		this.spider = spider;
+	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
+	public String getMethod() {
+		return method;
+	}
+
+	public void setMethod(String method) {
+		this.method = method;
+	}
+
+	public Map<String, String> getHeaders() {
+		return headers;
+	}
+
+	public void setHeaders(Map<String, String> headers) {
+		this.headers = headers;
+	}
+
+	public Map<String, String> getCookies() {
+		return cookies;
+	}
+
+	public void setCookies(Map<String, String> cookies) {
+		this.cookies = cookies;
+	}
+
+	public String getContentType() {
+		return contentType;
+	}
+
+	public void setContentType(String contentType) {
+		this.contentType = contentType;
+	}
+
+	public String getCharset() {
+		return charset;
+	}
+
+	public void setCharset(String charset) {
+		this.charset = charset;
+	}
+
+	public Parser<T> getParser() {
+		return parser;
+	}
+    
 }

@@ -8,15 +8,19 @@ import java.util.List;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 /**
  * 爬虫调度器
  *
  * @author biezhi
  * @date 2018/1/12
  */
-@Slf4j
+//@Slf4j
 public class Scheduler {
-
+	// 添加slf4j日志实例对象
+	final static Logger log = LoggerFactory.getLogger(Scheduler.class);
+	
     private BlockingQueue<Request>  pending = new LinkedBlockingQueue<>();
     private BlockingQueue<Response> result  = new LinkedBlockingQueue<>();
 

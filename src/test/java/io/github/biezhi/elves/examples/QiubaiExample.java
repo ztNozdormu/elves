@@ -9,7 +9,10 @@ import io.github.biezhi.elves.response.Result;
 import io.github.biezhi.elves.spider.Spider;
 import lombok.extern.slf4j.Slf4j;
 import org.jsoup.nodes.Element;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -21,9 +24,9 @@ import java.util.stream.Collectors;
  * @date 2018/1/15
  */
 public class QiubaiExample {
-
+	private final static Logger log = LoggerFactory.getLogger(QiubaiExample.class);
     private static final String BASE_URL = "https://www.qiushibaike.com";
-
+    
     @Slf4j
     static class QiubaiSpider extends Spider {
         public QiubaiSpider(String name) {
@@ -41,14 +44,11 @@ public class QiubaiExample {
 
         @Override
         protected Result parse(Response response) {
-            Result result = new Result();
-
             List<String> items = response.body().css("#content-left div.article div.content span").stream()
                     .map(element -> element.text().replace("<br/>", "\r\n"))
                     .collect(Collectors.toList());
-
+            Result<List<String>> result = new Result<List<String>>(items);
             result.setItem(items);
-
             // 下一页
             Optional<Element> nextEl = response.body().css("ul.pagination a span").stream()
                     .filter(element -> "下一页".equals(element.text()))

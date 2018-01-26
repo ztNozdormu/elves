@@ -30,6 +30,11 @@
     </scm>
 
     <dependencies>
+	    <dependency>
+		    <groupId>io.github.biezhi</groupId>
+		    <artifactId>elves</artifactId>
+		    <version>0.0.2</version>
+		</dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>

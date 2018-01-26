@@ -1,6 +1,7 @@
 package io.github.biezhi.elves.examples;
 
 import io.github.biezhi.elves.Elves;
+import io.github.biezhi.elves.ElvesEngine;
 import io.github.biezhi.elves.config.Config;
 import io.github.biezhi.elves.pipeline.Pipeline;
 import io.github.biezhi.elves.request.Request;
@@ -10,6 +11,8 @@ import io.github.biezhi.elves.spider.Spider;
 import lombok.extern.slf4j.Slf4j;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -21,7 +24,7 @@ import java.util.stream.Collectors;
  * @date 2018/1/11
  */
 public class DoubanExample {
-
+	private final static Logger log = LoggerFactory.getLogger(DoubanExample.class);
     @Slf4j
     static class DoubanSpider extends Spider {
 

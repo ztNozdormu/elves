@@ -7,6 +7,9 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.io.InputStream;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * 下载器线程
  *
@@ -15,7 +18,8 @@ import java.io.InputStream;
  */
 @Slf4j
 public class Downloader implements Runnable {
-
+	// 添加slf4j日志实例对象
+    private final static Logger log = LoggerFactory.getLogger(Downloader.class);
     private final Scheduler scheduler;
     private final Request   request;
 

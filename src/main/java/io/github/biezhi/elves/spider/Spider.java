@@ -78,4 +78,44 @@ public abstract class Spider {
         requests.forEach(requestConsumer::accept);
     }
 
+	public Config getConfig() {
+		return config;
+	}
+
+	public void setConfig(Config config) {
+		this.config = config;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public List<String> getStartUrls() {
+		return startUrls;
+	}
+
+	public void setStartUrls(List<String> startUrls) {
+		this.startUrls = startUrls;
+	}
+
+	public List<Pipeline> getPipelines() {
+		return pipelines;
+	}
+
+	public void setPipelines(List<Pipeline> pipelines) {
+		this.pipelines = pipelines;
+	}
+
+	public List<Request> getRequests() {
+		return requests;
+	}
+
+	public void setRequests(List<Request> requests) {
+		this.requests = requests;
+	}
+
 }

@@ -19,6 +19,9 @@ import java.util.List;
 import java.util.concurrent.*;
 import java.util.stream.Collectors;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * Elves Engine
  *
@@ -27,7 +30,8 @@ import java.util.stream.Collectors;
  */
 @Slf4j
 public class ElvesEngine {
-
+	// 添加slf4j日志实例对象
+	private final static Logger log = LoggerFactory.getLogger(ElvesEngine.class);
     private List<Spider>    spiders;
     private Config          config;
     private boolean         isRunning;

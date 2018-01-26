@@ -12,6 +12,8 @@ import io.github.biezhi.elves.spider.Spider;
 import lombok.extern.slf4j.Slf4j;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.util.List;
@@ -25,11 +27,11 @@ import java.util.stream.Collectors;
  * @date 2018/1/12
  */
 public class MeiziExample {
-
+	private final static Logger log = LoggerFactory.getLogger(MeiziExample.class);
     @Slf4j
     static class MeiziSpider extends Spider {
 
-        private String storageDir = "/Users/biezhi/Desktop/meizi";
+        private String storageDir = "D://Users/biezhi/meizi";
 
         public MeiziSpider(String name) {
             super(name);
@@ -43,6 +45,10 @@ public class MeiziExample {
 
         @Override
         public void onStart(Config config) {
+        	File file = new File(storageDir);
+        	if(!file.exists()) {
+        		file.mkdirs();
+        	}
             this.addPipeline((Pipeline<List<String>>) (item, request) -> {
                 item.forEach(imgUrl -> {
                     log.info("开始下载: {}", imgUrl);
@@ -68,7 +74,7 @@ public class MeiziExample {
 
         @Override
         protected Result parse(Response response) {
-            Result   result   = new Result<>();
+            Result   result   = new Result();
             Elements elements = response.body().css("#maincontent > div.inWrap > ul > li:nth-child(1) > div > div > a");
             log.info("elements size: {}", elements.size());
 
